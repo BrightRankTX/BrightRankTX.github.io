@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightRank | Local SEO & Review Generation</title>
+    <meta name="description" content="Dominate your local market. BrightRank helps local businesses automate 5-star Google reviews and optimize their Maps ranking.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --text-color: #f8f9fa;
+            --accent-glow: rgba(79, 195, 247, 0.4);
+            --primary-color: #4fc3f7;
+            --secondary-color: #29b6f6;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 100px; /* Offset for fixed header */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Abstract Background Elements */
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(11, 15, 25, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+        }
+        .glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; }
+        .glow-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(142, 36, 170, 0.3) 0%, rgba(11, 15, 25, 0) 70%); }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(11, 15, 25, 0.7);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #4fc3f7, #ba68c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-color), #bc48f3);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(188, 72, 243, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            margin-top: 50px;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            letter-spacing: -1.5px;
+        }
+        
+        .hero h2 span {
+            background: linear-gradient(90deg, #4fc3f7, #f06292);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0aabf;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Services Grid (Glassmorphism) */
+        .services {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: #a0aabf;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(90deg, rgba(79, 195, 247, 0.1), rgba(186, 104, 200, 0.1));
+            padding: 5rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .stat-item h4 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #4fc3f7, #f06292);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Contact/Footer */
+        .contact {
+            padding: 6rem 5%;
+            text-align: center;
+        }
+        .contact form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .contact input:focus, .contact textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2.5rem; }
+            .stat-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-circle glow-1"></div>
+    <div class="glow-circle glow-2"></div>
+
+    <header>
+        <h1>BrightRank</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#results">Results</a>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2 style="animation: fadeUp 1s ease-out;">Turn Happy Customers into <span>5-Star Google Reviews</span></h2>
+        <p style="animation: fadeUp 1.2s ease-out;">We automate your local reputation. Stop waiting for reviews—start asking automatically. Outrank your competitors and drive more local foot traffic.</p>
+        <a href="#contact" class="cta-btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Get Your Free Local SEO Audit</a>
+    </section>
+
+    <section class="stats-section" id="results">
+        <div class="stat-grid">
+            <div class="stat-item">
+                <h4>5-7</h4>
+                <p>New 5-star reviews on average in the first 14 days.</p>
+            </div>
+            <div class="stat-item">
+                <h4>89%</h4>
+                <p>Of consumers read reviews before booking a local service.</p>
+            </div>
+            <div class="stat-item">
+                <h4>Multiplied</h4>
+                <p>Foot traffic and calls from appearing in the Google Maps 'Local Pack'.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">How We Grow Your Business</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Automated Review Campaigns</h3>
+                <p>Provide us your customer contact list (from your POS or booking software) and we handle the rest. We send polite, highly-converting requests that drive real customers straight to your Google review page.</p>
+            </div>
+            <div class="card">
+                <h3>Google Business Optimization</h3>
+                <p>Most profiles miss critical local SEO elements. We conduct a full audit, add missing categories, optimize descriptions for local keywords, and ensure your NAP (Name, Address, Phone) is flawless.</p>
+            </div>
+            <div class="card">
+                <h3>Ongoing Reputation Monitoring</h3>
+                <p>We don't just set it and forget it. Receive monthly reports tracking your Maps ranking progress and real-time alerts so you can respond quickly to customer feedback.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Ready to outrank the competition?</h2>
+        <p style="color: #a0aabf; margin-top: 1rem;">Enter your info below and we'll send you a custom audit of your Google Business Profile.</p>
+        <form onsubmit="event.preventDefault(); alert('We will connect a form provider here soon!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Business Name / Website URL" required>
+            <textarea rows="4" placeholder="What is your main goal for local SEO?" required></textarea>
+            <button type="submit" class="cta-btn" style="width: 100%; border-radius: 10px;">Request Free Audit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BrightRank Digital. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
