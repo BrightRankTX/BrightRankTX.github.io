@@ -336,21 +336,11 @@
     <div class="glow-circle glow-2"></div>
 
     <header>
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-left: 10px; padding-top: 5px;">
-            <div style="position: relative; font-size: 4rem; font-weight: 900; background: linear-gradient(135deg, #4fc3f7, #d500f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 0.9;">
-                B
-                <!-- Glowing intersecting arrow to match the AI logo -->
-                <svg viewBox="0 0 24 24" style="position: absolute; top: -5%; left: 0%; width: 120%; height: 120%; pointer-events: none; filter: drop-shadow(0 0 5px rgba(213, 0, 249, 0.5));">
-                    <defs>
-                        <linearGradient id="logo-arrow-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#4fc3f7" />
-                            <stop offset="100%" stop-color="#d500f9" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 4 20 L 22 2 M 22 2 L 22 9 M 22 2 L 15 2" stroke="url(#logo-arrow-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </svg>
+        <div style="display: flex; align-items: center; padding-left: 10px;">
+            <!-- Aggressively crop out the outer circle and scale up the center B and text -->
+            <div style="width: 240px; height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="BrightRank_Logo.png" alt="BrightRank" style="width: 450px; max-width: none; clip-path: inset(24% 24% 20% 24%); transform: scale(1.2);">
             </div>
-            <div style="font-size: 0.9rem; font-weight: 800; color: white; letter-spacing: 2px; text-transform: uppercase; margin-top: -2px;">BrightRank</div>
         </div>
         <nav>
             <a href="#results">Results</a>
