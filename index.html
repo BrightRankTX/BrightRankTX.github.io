@@ -159,25 +159,7 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 800px;
-            height: 100vh;
-            background-image: url('texas_bg.svg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.12; /* Subtle background glow */
-            z-index: -1;
-            pointer-events: none;
-            /* BrightRank Neon Glow Effect */
-            filter: drop-shadow(0 0 10px #4fc3f7) drop-shadow(0 0 20px #b388ff);
-        }
+
 
         .hero h2 {
             font-size: 4rem;
@@ -316,9 +298,9 @@
     <div class="glow-circle glow-2"></div>
 
     <header>
-        <div style="display: flex; align-items: center; padding-left: 10px;">
-            <!-- Using standard background sizing and mix-blend-mode to magically delete the dark square bg -->
-            <div style="width: 160px; height: 170px; background-image: url('BrightRank_Logo.png'); background-size: 240%; background-position: center 50%; background-repeat: no-repeat; mix-blend-mode: screen;"></div>
+        <div style="display: flex; align-items: center; padding-left: 20px;">
+            <!-- Deep crop to omit text, with contrast isolation and a feathering radial mask to simulate a true transparent PNG vector -->
+            <div style="width: 80px; height: 80px; background-image: url('BrightRank_Logo.png'); background-size: 320%; background-position: center 38%; background-repeat: no-repeat; mix-blend-mode: screen; filter: contrast(1.4) brightness(0.85); mask-image: radial-gradient(circle at center, black 55%, transparent 75%); -webkit-mask-image: radial-gradient(circle at center, black 55%, transparent 75%);"></div>
         </div>
         <nav>
             <a href="#results">Results</a>
