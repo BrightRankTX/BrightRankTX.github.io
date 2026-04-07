@@ -139,33 +139,7 @@
             z-index: -1;
             pointer-events: none;
         }
-        .grid-laser.horizontal {
-            width: 15%;
-            height: 1px;
-        }
-        .grid-laser.vertical {
-            width: 1px;
-            height: 15%;
-        }
-
-        /* Bright center variations */
-        .laser-cyan-h {
-            background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 40%, #fff 50%, rgba(79, 195, 247, 0.8) 60%, transparent);
-            box-shadow: 0 0 10px #4fc3f7, 0 0 2px #fff;
-        }
-        .laser-cyan-v {
-            background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.8) 40%, #fff 50%, rgba(79, 195, 247, 0.8) 60%, transparent);
-            box-shadow: 0 0 10px #4fc3f7, 0 0 2px #fff;
-        }
-        .laser-purple-h {
-            background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.8) 40%, #fff 50%, rgba(213, 0, 249, 0.8) 60%, transparent);
-            box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;
-        }
-        .laser-purple-v {
-            background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 40%, #fff 50%, rgba(213, 0, 249, 0.8) 60%, transparent);
-            box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;
-        }
-
+        /* Laser lengths and shines are generated individually via inline styles for maximum randomness */
         @keyframes scan-h {
             0% { left: -20%; opacity: 0; }
             10% { opacity: 1; }
@@ -336,10 +310,10 @@
     <div class="glow-circle glow-2"></div>
 
     <header>
-        <div style="display: flex; align-items: center; padding-left: 10px;">
-            <!-- Aggressively crop out the outer circle and scale up the center B and text -->
-            <div style="width: 240px; height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                <img src="BrightRank_Logo.png" alt="BrightRank" style="width: 450px; max-width: none; clip-path: inset(24% 24% 20% 24%); transform: scale(1.2);">
+        <div style="display: flex; align-items: center; padding-left: 20px; padding-top: 10px;">
+            <!-- Using standard image cropping to perfectly frame the center B and hide the circle -->
+            <div style="width: 220px; height: 190px; overflow: hidden; position: relative;">
+                <img src="BrightRank_Logo.png" alt="BrightRank" style="position: absolute; top: -155px; left: -140px; width: 500px; max-width: none; border-radius: 0;">
             </div>
         </div>
         <nav>
@@ -350,14 +324,18 @@
     </header>
 
     <section class="hero">
-        <!-- Animated Grid Lasers - Prime timings for organic desync -->
-        <div class="grid-laser horizontal laser-cyan-h" style="top: 15%; animation: scan-h 7.3s infinite linear 0s;"></div>
-        <div class="grid-laser horizontal laser-purple-h" style="top: 85%; animation: scan-h 11.1s infinite linear 3.2s;"></div>
-        <div class="grid-laser horizontal laser-cyan-h" style="top: 45%; animation: scan-h 13.5s infinite linear 5.7s;"></div>
+        <!-- Animated Grid Lasers - Highly Randomized Lengths & Cores -->
+        <!-- Horizontals -->
+        <div class="grid-laser horizontal" style="top: 15%; width: 25%; animation: scan-h 7.3s infinite linear 0s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 30%, #fff 45%, #fff 55%, rgba(79, 195, 247, 0.8) 70%, transparent); box-shadow: 0 0 12px #4fc3f7, 0 0 4px #fff;"></div>
+        <div class="grid-laser horizontal" style="top: 35%; width: 8%; animation: scan-h 11.1s infinite linear 3.2s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.6) 50%, transparent); box-shadow: 0 0 6px #d500f9;"></div>
+        <div class="grid-laser horizontal" style="top: 85%; width: 40%; animation: scan-h 13.5s infinite linear 5.7s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 48%, #fff 50%, rgba(79, 195, 247, 0.8) 52%, transparent); box-shadow: 0 0 8px #4fc3f7, 0 0 2px #fff;"></div>
+        <div class="grid-laser horizontal" style="top: 65%; width: 15%; animation: scan-h 9.2s infinite linear 1.5s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.8) 20%, #fff 30%, #fff 70%, rgba(213, 0, 249, 0.8) 80%, transparent); box-shadow: 0 0 15px #d500f9, 0 0 5px #fff;"></div>
         
-        <div class="grid-laser vertical laser-cyan-v" style="left: 15%; animation: scan-v 8.7s infinite linear 1.2s;"></div>
-        <div class="grid-laser vertical laser-purple-v" style="left: 85%; animation: scan-v 12.3s infinite linear 4.1s;"></div>
-        <div class="grid-laser vertical laser-purple-v" style="left: 45%; animation: scan-v 9.4s infinite linear 2.5s;"></div>
+        <!-- Verticals -->
+        <div class="grid-laser vertical" style="left: 15%; height: 12%; animation: scan-v 8.7s infinite linear 1.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.6) 50%, transparent); box-shadow: 0 0 6px #4fc3f7;"></div>
+        <div class="grid-laser vertical" style="left: 85%; height: 35%; animation: scan-v 12.3s infinite linear 4.1s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 20%, #fff 40%, #fff 60%, rgba(213, 0, 249, 0.8) 80%, transparent); box-shadow: 0 0 12px #d500f9, 0 0 4px #fff;"></div>
+        <div class="grid-laser vertical" style="left: 45%; height: 20%; animation: scan-v 6.4s infinite linear 2.5s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 45%, #fff 50%, rgba(213, 0, 249, 0.8) 55%, transparent); box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;"></div>
+        <div class="grid-laser vertical" style="left: 65%; height: 8%; animation: scan-v 14.8s infinite linear 7.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.8) 45%, #fff 50%, rgba(79, 195, 247, 0.8) 55%, transparent); box-shadow: 0 0 8px #4fc3f7, 0 0 2px #fff;"></div>
 
         <h2 style="animation: fadeUp 1s ease-out;">Turn Happy Customers into <span>5-Star Google Reviews</span></h2>
         <p style="animation: fadeUp 1.2s ease-out;">We automate your local reputation. Stop waiting for reviews—start asking automatically. Outrank your competitors and drive more local foot traffic.</p>
