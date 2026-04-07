@@ -139,6 +139,12 @@
             z-index: -1;
             pointer-events: none;
         }
+        .grid-laser.horizontal {
+            height: 1px;
+        }
+        .grid-laser.vertical {
+            width: 1px;
+        }
         /* Laser lengths and shines are generated individually via inline styles for maximum randomness */
         @keyframes scan-h {
             0% { left: -20%; opacity: 0; }
@@ -310,11 +316,9 @@
     <div class="glow-circle glow-2"></div>
 
     <header>
-        <div style="display: flex; align-items: center; padding-left: 20px; padding-top: 10px;">
-            <!-- Using standard image cropping to perfectly frame the center B and hide the circle -->
-            <div style="width: 220px; height: 190px; overflow: hidden; position: relative;">
-                <img src="BrightRank_Logo.png" alt="BrightRank" style="position: absolute; top: -155px; left: -140px; width: 500px; max-width: none; border-radius: 0;">
-            </div>
+        <div style="display: flex; align-items: center; padding-left: 10px;">
+            <!-- Using standard background sizing and mix-blend-mode to magically delete the dark square bg -->
+            <div style="width: 160px; height: 170px; background-image: url('BrightRank_Logo.png'); background-size: 240%; background-position: center 50%; background-repeat: no-repeat; mix-blend-mode: screen;"></div>
         </div>
         <nav>
             <a href="#results">Results</a>
@@ -324,18 +328,18 @@
     </header>
 
     <section class="hero">
-        <!-- Animated Grid Lasers - Highly Randomized Lengths & Cores -->
+        <!-- Animated Grid Lasers - Pure Neon Outline Effects -->
         <!-- Horizontals -->
-        <div class="grid-laser horizontal" style="top: 15%; width: 25%; animation: scan-h 7.3s infinite linear 0s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 30%, #fff 45%, #fff 55%, rgba(79, 195, 247, 0.8) 70%, transparent); box-shadow: 0 0 12px #4fc3f7, 0 0 4px #fff;"></div>
-        <div class="grid-laser horizontal" style="top: 35%; width: 8%; animation: scan-h 11.1s infinite linear 3.2s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.6) 50%, transparent); box-shadow: 0 0 6px #d500f9;"></div>
-        <div class="grid-laser horizontal" style="top: 85%; width: 40%; animation: scan-h 13.5s infinite linear 5.7s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 48%, #fff 50%, rgba(79, 195, 247, 0.8) 52%, transparent); box-shadow: 0 0 8px #4fc3f7, 0 0 2px #fff;"></div>
-        <div class="grid-laser horizontal" style="top: 65%; width: 15%; animation: scan-h 9.2s infinite linear 1.5s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.8) 20%, #fff 30%, #fff 70%, rgba(213, 0, 249, 0.8) 80%, transparent); box-shadow: 0 0 15px #d500f9, 0 0 5px #fff;"></div>
+        <div class="grid-laser horizontal" style="top: 15%; width: 25%; animation: scan-h 7.3s infinite linear 0s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 1), transparent); box-shadow: 0 0 10px rgba(79, 195, 247, 0.8), 0 0 5px rgba(79, 195, 247, 1);"></div>
+        <div class="grid-laser horizontal" style="top: 35%; width: 8%; animation: scan-h 11.1s infinite linear 3.2s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 1), transparent); box-shadow: 0 0 8px rgba(213, 0, 249, 0.8), 0 0 4px rgba(213, 0, 249, 1);"></div>
+        <div class="grid-laser horizontal" style="top: 85%; width: 40%; animation: scan-h 13.5s infinite linear 5.7s; background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 1), transparent); box-shadow: 0 0 12px rgba(79, 195, 247, 0.8), 0 0 6px rgba(79, 195, 247, 1);"></div>
+        <div class="grid-laser horizontal" style="top: 65%; width: 15%; animation: scan-h 9.2s infinite linear 1.5s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 1), transparent); box-shadow: 0 0 14px rgba(213, 0, 249, 0.8), 0 0 7px rgba(213, 0, 249, 1);"></div>
         
         <!-- Verticals -->
-        <div class="grid-laser vertical" style="left: 15%; height: 12%; animation: scan-v 8.7s infinite linear 1.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.6) 50%, transparent); box-shadow: 0 0 6px #4fc3f7;"></div>
-        <div class="grid-laser vertical" style="left: 85%; height: 35%; animation: scan-v 12.3s infinite linear 4.1s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 20%, #fff 40%, #fff 60%, rgba(213, 0, 249, 0.8) 80%, transparent); box-shadow: 0 0 12px #d500f9, 0 0 4px #fff;"></div>
-        <div class="grid-laser vertical" style="left: 45%; height: 20%; animation: scan-v 6.4s infinite linear 2.5s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 45%, #fff 50%, rgba(213, 0, 249, 0.8) 55%, transparent); box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;"></div>
-        <div class="grid-laser vertical" style="left: 65%; height: 8%; animation: scan-v 14.8s infinite linear 7.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.8) 45%, #fff 50%, rgba(79, 195, 247, 0.8) 55%, transparent); box-shadow: 0 0 8px #4fc3f7, 0 0 2px #fff;"></div>
+        <div class="grid-laser vertical" style="left: 15%; height: 12%; animation: scan-v 8.7s infinite linear 1.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 1), transparent); box-shadow: 0 0 10px rgba(79, 195, 247, 0.8), 0 0 5px rgba(79, 195, 247, 1);"></div>
+        <div class="grid-laser vertical" style="left: 85%; height: 35%; animation: scan-v 12.3s infinite linear 4.1s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 1), transparent); box-shadow: 0 0 12px rgba(213, 0, 249, 0.8), 0 0 6px rgba(213, 0, 249, 1);"></div>
+        <div class="grid-laser vertical" style="left: 45%; height: 20%; animation: scan-v 6.4s infinite linear 2.5s; background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 1), transparent); box-shadow: 0 0 10px rgba(213, 0, 249, 0.8), 0 0 5px rgba(213, 0, 249, 1);"></div>
+        <div class="grid-laser vertical" style="left: 65%; height: 8%; animation: scan-v 14.8s infinite linear 7.2s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 1), transparent); box-shadow: 0 0 10px rgba(79, 195, 247, 0.8), 0 0 5px rgba(79, 195, 247, 1);"></div>
 
         <h2 style="animation: fadeUp 1s ease-out;">Turn Happy Customers into <span>5-Star Google Reviews</span></h2>
         <p style="animation: fadeUp 1.2s ease-out;">We automate your local reputation. Stop waiting for reviews—start asking automatically. Outrank your competitors and drive more local foot traffic.</p>
