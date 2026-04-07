@@ -250,10 +250,12 @@
     <div class="glow-circle glow-2"></div>
 
     <header>
-        <h1>BrightRank</h1>
+        <div style="display: flex; align-items: center; padding-left: 10px;">
+            <img src="BrightRank_Logo.png" alt="BrightRank Logo" style="height: 65px; border-radius: 12px; box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);">
+        </div>
         <nav>
-            <a href="#services">Services</a>
             <a href="#results">Results</a>
+            <a href="#services">Services</a>
             <a href="#contact" class="cta-btn">Get Started</a>
         </nav>
     </header>
@@ -265,18 +267,20 @@
     </section>
 
     <section class="stats-section" id="results">
+        <h2 class="section-title" style="margin-bottom: 2rem;">A Local East Texas Case Study</h2>
+        <p style="text-align: center; color: #a0aabf; max-width: 800px; margin: 0 auto 4rem auto; font-size: 1.1rem;">We recently partnered with a local service business that was struggling to collect reviews despite having hundreds of happy customers. We plugged their past customer list into our totally automated review engine. The results in the first 7 days:</p>
         <div class="stat-grid">
-            <div class="stat-item">
-                <h4>5-7</h4>
-                <p>New 5-star reviews on average in the first 14 days.</p>
+            <div class="stat-item" style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="background: linear-gradient(90deg, #ff8a65, #e53935); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">13</h4>
+                <p>Total reviews before using BrightRank.</p>
             </div>
-            <div class="stat-item">
-                <h4>89%</h4>
-                <p>Of consumers read reviews before booking a local service.</p>
+            <div class="stat-item" style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border: 1px solid rgba(79, 195, 247, 0.2);">
+                <h4 style="font-size: 3.5rem;">123%</h4>
+                <p>Increase in total permanent 5-star reviews.</p>
             </div>
-            <div class="stat-item">
-                <h4>Multiplied</h4>
-                <p>Foot traffic and calls from appearing in the Google Maps 'Local Pack'.</p>
+            <div class="stat-item" style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border: 1px solid rgba(105, 240, 174, 0.2);">
+                <h4 style="background: linear-gradient(90deg, #69f0ae, #00e676); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">29</h4>
+                <p>Total reviews after just 7 days.</p>
             </div>
         </div>
     </section>
@@ -286,27 +290,37 @@
         <div class="grid">
             <div class="card">
                 <h3>Automated Review Campaigns</h3>
-                <p>Provide us your customer contact list (from your POS or booking software) and we handle the rest. We send polite, highly-converting requests that drive real customers straight to your Google review page.</p>
+                <h4 style="color: #4fc3f7; margin-bottom: 1rem; font-size: 1.1rem;">$150 per batch (50 customers)</h4>
+                <p>Provide us your customer contact list and we handle the rest. We safely send optimized review requests to your past customers to passively generate real 5-star Google reviews.</p>
             </div>
             <div class="card">
-                <h3>Google Business Optimization</h3>
-                <p>Most profiles miss critical local SEO elements. We conduct a full audit, add missing categories, optimize descriptions for local keywords, and ensure your NAP (Name, Address, Phone) is flawless.</p>
+                <h3>Google Profile Audits</h3>
+                <h4 style="color: #4fc3f7; margin-bottom: 1rem; font-size: 1.1rem;">$80 flat fee</h4>
+                <p>Most profiles miss critical local SEO elements. We fix the critical missing keywords and settings on your profile that keep you from ranking in the top 3 'Local Pack'.</p>
             </div>
             <div class="card">
                 <h3>Ongoing Reputation Monitoring</h3>
-                <p>We don't just set it and forget it. Receive monthly reports tracking your Maps ranking progress and real-time alerts so you can respond quickly to customer feedback.</p>
+                <h4 style="color: #4fc3f7; margin-bottom: 1rem; font-size: 1.1rem;">$150 per month</h4>
+                <p>We continuously monitor your Maps ranking and review velocity so you stay at the top. Receive real-time alerts so you can respond quickly to customer feedback.</p>
             </div>
         </div>
+        <p style="text-align: center; color: #a0aabf; margin-top: 2rem; font-size: 0.9rem;">*Note: Significant bulk discounts available for lists over 100 people.</p>
     </section>
 
     <section class="contact" id="contact">
         <h2>Ready to outrank the competition?</h2>
         <p style="color: #a0aabf; margin-top: 1rem;">Enter your info below and we'll send you a custom audit of your Google Business Profile.</p>
-        <form onsubmit="event.preventDefault(); alert('We will connect a form provider here soon!');">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="text" placeholder="Business Name / Website URL" required>
-            <textarea rows="4" placeholder="What is your main goal for local SEO?" required></textarea>
+        <form action="https://formsubmit.co/etx1119@gmail.com" method="POST">
+            <!-- Disable CAPTCHA for smoother UX -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Redirect back to site after submit -->
+            <input type="hidden" name="_next" value="https://brightranktx.github.io">
+            
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Email Address" required>
+            <input type="text" name="Business" placeholder="Business Name / Website URL" required>
+            <textarea name="Goals" rows="4" placeholder="What is your main goal for local SEO?" required></textarea>
+            
             <button type="submit" class="cta-btn" style="width: 100%; border-radius: 10px;">Request Free Audit</button>
         </form>
     </section>
