@@ -17,6 +17,76 @@
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
+        body.light-mode {
+            --bg-color: #f8f9fa;
+            --text-color: #111827;
+            --accent-glow: rgba(79, 195, 247, 0.15);
+            --primary-color: #0288d1;
+            --secondary-color: #03a9f4;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+        body.light-mode header {
+            background: rgba(248, 249, 250, 0.85);
+        }
+        body.light-mode nav a {
+            color: #4b5563;
+        }
+        body.light-mode .hero p,
+        body.light-mode .card p,
+        body.light-mode .stats-section p,
+        body.light-mode .services p,
+        body.light-mode .contact p,
+        body.light-mode footer {
+            color: #4b5563 !important;
+        }
+        body.light-mode .card h3 {
+            color: #111827;
+        }
+        body.light-mode .stat-item {
+            background: rgba(255, 255, 255, 0.6) !important;
+            border: 1px solid var(--glass-border) !important;
+        }
+        body.light-mode .contact input, 
+        body.light-mode .contact textarea {
+            background: rgba(255, 255, 255, 0.9);
+            color: #111827;
+        }
+        body.light-mode .hero::after {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .theme-toggle:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        body.light-mode .theme-toggle {
+            color: #4b5563;
+        }
+        body.light-mode .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .theme-toggle {
+                margin-left: auto;
+                padding-right: 1rem;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -285,6 +355,95 @@
             font-size: 0.8rem;
         }
 
+        /* Most Popular Badge */
+        .card-featured {
+            border-color: var(--primary-color) !important;
+            position: relative;
+        }
+        .badge-popular {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4fc3f7, #bc48f3);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(79,195,247,0.4);
+        }
+
+        /* Location Tagline */
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #a0aabf;
+            letter-spacing: 0.03em;
+        }
+        .location-tag svg { flex-shrink: 0; }
+        body.light-mode .location-tag { color: #6b7280; }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .faq-item:hover { border-color: var(--primary-color); }
+        .faq-question {
+            width: 100%;
+            background: var(--card-bg);
+            border: none;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1.3rem 1.5rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: background 0.3s;
+        }
+        .faq-question:hover { background: rgba(79,195,247,0.06); }
+        .faq-chevron {
+            flex-shrink: 0;
+            transition: transform 0.35s ease;
+            color: var(--primary-color);
+        }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: #a0aabf;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            background: var(--card-bg);
+        }
+        body.light-mode .faq-answer { color: #4b5563; }
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding: 0 1.5rem 1.3rem;
+        }
+
         @media (max-width: 768px) {
             .hero h2 { font-size: 2.5rem; }
             .stat-grid { grid-template-columns: 1fr; }
@@ -302,11 +461,17 @@
             <!-- Using the newly generated true transparent PNG vector provided by the user -->
             <img src="logo_perfect.png.png" alt="BrightRank" style="height: 90px; object-fit: contain; transform: scale(1.8); transform-origin: left center;">
         </div>
-        <nav>
-            <a href="#results">Results</a>
-            <a href="#services">Services</a>
-            <a href="#contact" class="cta-btn">Get Started</a>
-        </nav>
+        <div style="display: flex; align-items: center;">
+            <nav>
+                <a href="#results">Results</a>
+                <a href="#services">Services</a>
+                <a href="#contact" class="cta-btn">Get Started</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <svg id="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
     </header>
 
     <section class="hero">
@@ -326,6 +491,10 @@
         <h2 style="animation: fadeUp 1s ease-out;">Turn Happy Customers into <span>5-Star Google Reviews</span></h2>
         <p style="animation: fadeUp 1.2s ease-out;">We automate your local reputation. Stop waiting for reviews—start asking automatically. Outrank your competitors and drive more local foot traffic.</p>
         <a href="#contact" class="cta-btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Get Your Free Local SEO Audit</a>
+        <span class="location-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Serving the East Texas area &mdash; Tyler, Longview, Lufkin &amp; beyond
+        </span>
     </section>
 
     <section class="stats-section" id="results">
@@ -350,7 +519,8 @@
     <section class="services" id="services">
         <h2 class="section-title">How We Grow Your Business</h2>
         <div class="grid">
-            <div class="card">
+            <div class="card card-featured">
+                <div class="badge-popular">⭐ Most Popular</div>
                 <h3>Automated Review Campaigns</h3>
                 <h4 style="color: #4fc3f7; margin-bottom: 1rem; font-size: 1.1rem;">$150 per batch (50 customers)</h4>
                 <p>Provide us your customer contact list and we handle the rest. We safely send optimized review requests to your past customers to passively generate real 5-star Google reviews.</p>
@@ -374,6 +544,49 @@
         <p style="text-align: center; color: #a0aabf; margin-top: 2rem; font-size: 0.9rem; max-width: 800px; margin-left: auto; margin-right: auto;">*Note: Lists containing fewer than 50 contacts will be processed at the base rate of a single batch. For Website Engineering, clients must purchase their own domain name (typically ~$12/yr) OR we can seamlessly upgrade and reuse your existing domain.</p>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" style="background: linear-gradient(180deg, transparent, rgba(79,195,247,0.04), transparent);">
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">Do you need access to my Google account or passwords?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">Absolutely not. We never need your login credentials. For Review Campaigns, all we need is a simple spreadsheet of your past customers' names and phone numbers. For Profile Audits, we work from a read-only link you can share directly from Google.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Are the reviews real? Will Google remove them?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">Yes. Every review is left voluntarily by a real customer of yours — we simply make it easy for them to do so. Because the reviews come from real people who genuinely used your service, Google does not remove them. We never purchase fake reviews or use bots.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How quickly will I start seeing new reviews?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">Most clients start seeing new reviews within the first 48 to 72 hours of a campaign launching. The full results usually roll in over the first 2 to 3 weeks as customers open and respond to the outreach at their own pace.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Are you local to East Texas?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">Yes! BrightRank is a locally owned and operated company based in East Texas. We exclusively serve businesses in the Tyler, Longview, Lufkin, Nacogdoches, and surrounding areas. We care about our community and want to see local businesses succeed.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What do I need to get started?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">Just fill out the contact form below with your name, email, and business name. We will respond with a free audit of your current Google Business Profile and a clear recommendation for which service will have the biggest impact for you — no commitment required.</div>
+            </div>
+
+        </div>
+    </section>
+
     <section class="contact" id="contact">
         <h2>Ready to outrank the competition?</h2>
         <p style="color: #a0aabf; margin-top: 1rem;">Enter your info below and we'll send you a custom audit of your Google Business Profile.</p>
@@ -394,7 +607,46 @@
 
     <footer>
         <p>&copy; 2026 BrightRank Digital. All rights reserved.</p>
+        <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #555;">📍 Proudly serving Tyler, Longview, Lufkin &amp; East Texas</p>
     </footer>
 
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+            body.classList.add('light-mode');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        });
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
 </body>
 </html>
