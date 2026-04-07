@@ -18,16 +18,16 @@
         }
 
         body.light-mode {
-            --bg-color: #f8f9fa;
+            --bg-color: #eef2f6;
             --text-color: #111827;
             --accent-glow: rgba(79, 195, 247, 0.15);
             --primary-color: #0288d1;
             --secondary-color: #03a9f4;
             --card-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-border: rgba(0, 0, 0, 0.08);
         }
         body.light-mode header {
-            background: rgba(248, 249, 250, 0.85);
+            background: rgba(238, 242, 246, 0.85);
         }
         body.light-mode nav a {
             color: #4b5563;
@@ -54,8 +54,8 @@
         }
         body.light-mode .hero::after {
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+                linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
         }
         
         /* Theme Toggle Button */
@@ -465,6 +465,7 @@
             <nav>
                 <a href="#results">Results</a>
                 <a href="#services">Services</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact" class="cta-btn">Get Started</a>
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
