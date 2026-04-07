@@ -135,34 +135,47 @@
         /* Animated Grid Lasers */
         .grid-laser {
             position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8), transparent);
             opacity: 0;
             z-index: -1;
             pointer-events: none;
-            box-shadow: 0 0 10px rgba(79, 195, 247, 0.8);
         }
         .grid-laser.horizontal {
-            width: 30%;
+            width: 15%;
             height: 1px;
-            animation: scan-h 6s infinite ease-in-out;
         }
         .grid-laser.vertical {
             width: 1px;
-            height: 40%;
-            background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8), transparent);
-            box-shadow: 0 0 10px rgba(213, 0, 249, 0.8);
-            animation: scan-v 8s infinite ease-in-out;
+            height: 15%;
         }
+
+        /* Bright center variations */
+        .laser-cyan-h {
+            background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.8) 40%, #fff 50%, rgba(79, 195, 247, 0.8) 60%, transparent);
+            box-shadow: 0 0 10px #4fc3f7, 0 0 2px #fff;
+        }
+        .laser-cyan-v {
+            background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.8) 40%, #fff 50%, rgba(79, 195, 247, 0.8) 60%, transparent);
+            box-shadow: 0 0 10px #4fc3f7, 0 0 2px #fff;
+        }
+        .laser-purple-h {
+            background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.8) 40%, #fff 50%, rgba(213, 0, 249, 0.8) 60%, transparent);
+            box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;
+        }
+        .laser-purple-v {
+            background: linear-gradient(180deg, transparent, rgba(213, 0, 249, 0.8) 40%, #fff 50%, rgba(213, 0, 249, 0.8) 60%, transparent);
+            box-shadow: 0 0 8px #d500f9, 0 0 2px #fff;
+        }
+
         @keyframes scan-h {
-            0% { left: -30%; opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
+            0% { left: -20%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { left: 100%; opacity: 0; }
         }
         @keyframes scan-v {
-            0% { top: -40%; opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
+            0% { top: -20%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { top: 100%; opacity: 0; }
         }
 
@@ -347,11 +360,14 @@
     </header>
 
     <section class="hero">
-        <!-- Animated Grid Lasers -->
-        <div class="grid-laser horizontal" style="top: 20%; animation-delay: 0s;"></div>
-        <div class="grid-laser horizontal" style="top: 70%; animation-delay: 3s; background: linear-gradient(90deg, transparent, rgba(213, 0, 249, 0.8), transparent); box-shadow: 0 0 10px rgba(213, 0, 249, 0.8);"></div>
-        <div class="grid-laser vertical" style="left: 20%; animation-delay: 1.5s;"></div>
-        <div class="grid-laser vertical" style="left: 80%; animation-delay: 4.5s; background: linear-gradient(180deg, transparent, rgba(79, 195, 247, 0.8), transparent); box-shadow: 0 0 10px rgba(79, 195, 247, 0.8);"></div>
+        <!-- Animated Grid Lasers - Prime timings for organic desync -->
+        <div class="grid-laser horizontal laser-cyan-h" style="top: 15%; animation: scan-h 7.3s infinite linear 0s;"></div>
+        <div class="grid-laser horizontal laser-purple-h" style="top: 85%; animation: scan-h 11.1s infinite linear 3.2s;"></div>
+        <div class="grid-laser horizontal laser-cyan-h" style="top: 45%; animation: scan-h 13.5s infinite linear 5.7s;"></div>
+        
+        <div class="grid-laser vertical laser-cyan-v" style="left: 15%; animation: scan-v 8.7s infinite linear 1.2s;"></div>
+        <div class="grid-laser vertical laser-purple-v" style="left: 85%; animation: scan-v 12.3s infinite linear 4.1s;"></div>
+        <div class="grid-laser vertical laser-purple-v" style="left: 45%; animation: scan-v 9.4s infinite linear 2.5s;"></div>
 
         <h2 style="animation: fadeUp 1s ease-out;">Turn Happy Customers into <span>5-Star Google Reviews</span></h2>
         <p style="animation: fadeUp 1.2s ease-out;">We automate your local reputation. Stop waiting for reviews—start asking automatically. Outrank your competitors and drive more local foot traffic.</p>
